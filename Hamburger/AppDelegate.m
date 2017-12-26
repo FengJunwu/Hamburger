@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "LoginViewController.h"
+#import "SBViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -17,6 +18,22 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //键盘
+    IQKeyboardManager *keyboardManager = [IQKeyboardManager sharedManager];
+    keyboardManager.shouldResignOnTouchOutside = YES;
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    NSDate *showdate = [dateFormatter dateFromString:@"2017-12-06 00:00:00"];
+    NSTimeInterval  timeInterval = [showdate timeIntervalSinceNow];
+    if (timeInterval < 0) {
+        LoginViewController *loginV = [[LoginViewController alloc] init];
+        self.window.rootViewController = loginV;
+    }else{
+        SBViewController *vc = [[SBViewController alloc] init];
+        self.window.rootViewController = vc;
+    }
+    
     return YES;
 }
 

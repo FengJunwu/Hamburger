@@ -1,0 +1,42 @@
+//
+//  PrefixHeader.pch
+//  Hamburger
+//
+//  Created by JND on 2017/11/29.
+//  Copyright © 2017年 JND. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+//颜色
+#define UIColorFromRGB(rgbValue)  [UIColor \
+colorWithRed:((float)((rgbValue & 0xFF0000)>>16))/255.0 \
+green:((float)((rgbValue & 0xFF00)>>8))/255.0 \
+blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+//屏幕宽高
+#define Kwidth [[UIScreen mainScreen] bounds].size.width
+#define Kheight [[UIScreen mainScreen] bounds].size.height
+
+#define kWidth(R) (R)*(Kwidth)/375.0 //这里的320我是针对5s为标准适配的,如果需要其他标准可以修改
+#define kHeight(R) (R)*(Kheight == 812 ? 736.0 : Kheight)/667.0 //这里的568我是针对5s为标准适配的,如果需要其他标准可以修改 代码简单我就不介绍了, 以此思想,我们可以对字体下手
+#define kFont(R) (R)*(Kwidth)/375.0 //这里是5s屏幕字体
+
+#define kHTabBar ([[UIScreen mainScreen] bounds].size.height == 812 ? 83.0 : 49.0)
+#define kHNavBar ([[UIScreen mainScreen] bounds].size.height == 812 ? 88 : 64)
+
+/*
+ 导航栏
+ */
+//#define NavBarColor [UIColor colorWithRed:0.25 green:0.31 blue:0.38 alpha:1.00]
+
+
+
+#import "WRNavigationBar.h"
+#import "BaseViewController.h"
+#import "BaseTableViewCell.h"
+#import <SDAutoLayout.h>
+#import <IQKeyboardManager.h>
+#import <MyLayout.h>
+
+#endif /* PrefixHeader_pch */

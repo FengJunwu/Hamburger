@@ -1,0 +1,14 @@
+//
+//  ReservationCollectionViewCell.h
+//  Hamburger
+//
+//  Created by JND on 2017/12/5.
+//  Copyright © 2017年 JND. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface ReservationCollectionViewCell : UICollectionViewCell
+-(void)setType:(NSString *)type butTitle:(NSString *)title;
+@property (nonatomic,strong) UIButton *but;
+@end
